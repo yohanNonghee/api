@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Application Hub</title>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles & Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #f8fafc 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        /* Navigation Cards Container */
+        .hub-container {
+            display: flex;
+            gap: 25px;
+            width: 100%;
+            max-width: 800px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Individual Card Link Styling */
+        .card {
+            background-color: #1e293b;
+            border-radius: 16px;
+            padding: 30px;
+            width: 100%;
+            max-width: 360px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.4);
+            border-color: #38bdf8;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #f8fafc;
+        }
+
+        .card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .card-action {
+            font-weight: 600;
+            color: #38bdf8;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .hub-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Header -->
+    <header>
+        <h1>Welcome to My TypeScript Web APIs</h1>
+        <p class="subtitle">Select an application below to explore</p>
+    </header>
+
+    <!-- Project Links Container -->
+    <div class="hub-container">
+        <!-- Currency Converter Card  -->
+        <a href="exchange_3.html" class="card">
+            <div>
+                <h2>Currency Converter</h2>
+                <p>A real-time currency exchange calculator supporting global currencies with live market rates and instant swapping features.</p>
+            </div>
+            <div class="card-action">Launch App &rarr;</div>
+        </a>
+
+        <!-- Unsplash Infinite Scroll Gallery Card  -->
+        <a href="infiniteccroll.html" class="card">
+            <div>
+                <h2>Infinite Scroll Gallery</h2>
+                <p>A responsive photography gallery powered by the Unsplash API featuring dynamic background loading as you scroll.</p>
+            </div>
+            <div class="card-action">Launch App &rarr;</div>
+        </a>
+    </div>
+
+</body>
+</html>

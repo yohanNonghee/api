@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Scroll Gallery</title>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Root Variables */
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-color: #38bdf8;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Global Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            padding-bottom: 50px;
+            position: relative;
+        }
+
+        /* Back Button Styling */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 10;
+        }
+
+        .back-btn:hover {
+            background-color: #334155;
+            border-color: var(--accent-color);
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #f8fafc 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        p.subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Image Grid Container */
+        .img-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* Image Card Styling */
+        .img-container a {
+            display: block;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: var(--card-bg);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            aspect-ratio: 4/5;
+        }
+
+        .img-container a:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .img-container a:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Loading Spinner Styling */
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0;
+            gap: 8px;
+        }
+
+        .loader div {
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            animation: bounce 0.6s infinite alternate;
+        }
+
+        .loader div:nth-child(2) { animation-delay: 0.2s; }
+        .loader div:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes bounce {
+            to {
+                transform: translateY(-10px);
+                opacity: 0.3;
+            }
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            .img-container {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back to Home Button -->
+    <a href="index.html" class="back-btn">&larr; Back to Home</a>
+
+    <!-- Header Component -->
+    <header>
+        <h1>Infinite Scroll Gallery</h1>
+        <p class="subtitle">Powered by Unsplash API</p>
+    </header>
+
+    <!-- Main Image Gallery Container -->
+    <div id="img-container" class="img-container"></div>
+    
+    <!-- Loading Indicator -->
+    <div id="loader" class="loader" style="display: none;">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Application Script -->
+    <script src="infinitecroll.js"></script>
+</body>
+</html>
