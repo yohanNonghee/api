@@ -43,5 +43,6 @@ ExchangeRate-API:
 
 # Technologies Used
 - HTML5 & CSS3 (Variables, Flexbox, CSS Grid, Custom Animations,Custom UI Elements, Box Shadows)
+- TypeScript
 - JavaScript (ES6+) (Async/Await, Fetch API, DOM Manipulation, Event Listeners,DOM Event Handling, Error Handling)
  
